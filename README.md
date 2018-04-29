@@ -6,6 +6,8 @@ It looks like this:
 
 ![Motion blur](images/demo.gif)
 
+[Here's a video of it in action.](https://www.youtube.com/watch?v=Du6_WYIRi5s)
+
 # How to use it 
 It's really easy to use in your project! Simply:
 
