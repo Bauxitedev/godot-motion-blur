@@ -24,3 +24,6 @@ It's really easy to use in your project! Simply:
 ![Fringe](images/fringe.png)
 
 I'm not sure what exactly causes this, so if you have any ideas, let me know or open a pull request.
+
+# License
+MIT
