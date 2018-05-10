@@ -19,6 +19,8 @@ It's really easy to use in your project! Simply:
 # Limitations/Known Issues
 
 - Only works for camera movement. When something else in the world moves it won't be blurred.
+- Additionally, when the camera moves, and another object moves at the same speed of the camera, that object will be wrongly blurred. So e.g. in a racing game you'll notice the car will be blurred in the same way as the environment.
+- Transparent objects will not be blurred (since this effect uses the depth buffer, but transparent objects aren't drawn to he depth buffer, so they aren't detected)
 - There is an aliased fringe visible around the silhouette of objects: 
 
 ![Fringe](images/fringe.png)
