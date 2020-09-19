@@ -4,11 +4,11 @@ extends MeshInstance
 var cam_pos_prev = Vector3()
 var cam_rot_prev = Quat()
 
-func _process(delta):
+func _process(_delta):
 	
 	var mat = get_surface_material(0)
 	var cam = get_parent()
-	assert cam is Camera
+	assert(cam is Camera)
 	
 	# Linear velocity is just difference in positions between two frames.
 	var velocity = cam.global_transform.origin - cam_pos_prev
