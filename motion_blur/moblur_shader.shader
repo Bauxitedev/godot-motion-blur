@@ -5,7 +5,7 @@ uniform vec3 linear_velocity;
 uniform vec3 angular_velocity; //rads
 uniform int iteration_count : hint_range(2, 50);
 uniform float intensity : hint_range(0, 1);
-
+uniform float startRadius;
 
 void fragment()
 { 
@@ -33,11 +33,15 @@ void fragment()
 	
 	vec3 col = vec3(0.0);
 	float counter = 0.0;
-	for (int i = 0; i < iteration_count; i++)
-	{
-		vec2 offset = pixel_diff_ndc * (float(i) / float(iteration_count) - 0.5) * intensity; 
-		col += textureLod(SCREEN_TEXTURE, SCREEN_UV + offset,0.0).rgb;
-		counter++;
+	if(length(r) >= startRadius){
+		for (int i = 0; i < iteration_count; i++)
+		{
+			vec2 offset = pixel_diff_ndc * (float(i) / float(iteration_count) - 0.5) * intensity; 
+			col += textureLod(SCREEN_TEXTURE, SCREEN_UV + offset,0.0).rgb;
+			counter++;
+		}
+		ALBEDO = col / counter;
 	}
-	ALBEDO = col / counter;
+	else
+		ALBEDO = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
 }
