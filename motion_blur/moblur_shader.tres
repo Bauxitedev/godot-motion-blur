@@ -8,4 +8,5 @@ shader = ExtResource( 1 )
 shader_param/linear_velocity = Vector3( 0, 0, 0 )
 shader_param/angular_velocity = Vector3( 0, 0, 0 )
 shader_param/iteration_count = 15
-shader_param/intensity = 1.0
+shader_param/intensity = 0.5
+shader_param/startRadius = 0.1
