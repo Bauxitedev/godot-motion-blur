@@ -6,6 +6,8 @@ var cam_rot_prev = Quat()
 
 func _process(_delta):
 	
+	#OS.delay_msec(30)
+	
 	var mat = get_surface_material(0)
 	var cam = get_parent()
 	assert(cam is Camera)
