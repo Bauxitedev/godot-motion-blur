@@ -19,6 +19,9 @@ func _process(_delta):
 	# See https://math.stackexchange.com/questions/160908/how-to-get-angular-velocity-from-difference-orientation-quaternion-and-time
 	var cam_rot = Quat(cam.global_transform.basis)
 	var cam_rot_diff = cam_rot - cam_rot_prev
+	if cam_rot.dot(cam_rot_prev) < 0.0: # Wraparound Fix
+		cam_rot_diff = -cam_rot_diff;
+		
 	var cam_rot_conj = conjugate(cam_rot)
 	var ang_vel = (cam_rot_diff * 2.0) * cam_rot_conj; 
 	ang_vel = Vector3(ang_vel.x, ang_vel.y, ang_vel.z) # Convert Quat to Vector3
